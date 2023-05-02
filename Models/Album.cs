@@ -7,8 +7,6 @@ public class Album {
 
     public string Title { get; set; }
 
-    public string Author { get; set; }
-
     public int Year { get; set; }
 
     public string Story { get; set; }
@@ -16,4 +14,7 @@ public class Album {
     public byte[] Cover { get; set; }
 
     public Genre Genre { get; set; }
+
+    public int ArtistId { get; set; }
+    public virtual Artist Artist { get; set; }
 }

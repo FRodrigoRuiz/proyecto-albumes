@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Albumes.Migrations
 {
     [DbContext(typeof(AlbumContext))]
-    [Migration("20230418180544_InitialCreate")]
+    [Migration("20230502230906_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,13 +25,15 @@ namespace Albumes.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<byte[]>("Poster")
+                    b.Property<byte[]>("Cover")
                         .IsRequired()
                         .HasColumnType("BLOB");
+
+                    b.Property<int>("Genre")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Story")
                         .IsRequired()
@@ -46,7 +48,40 @@ namespace Albumes.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArtistId");
+
                     b.ToTable("Album");
+                });
+
+            modelBuilder.Entity("Albumes.Models.Artist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Artist");
+                });
+
+            modelBuilder.Entity("Albumes.Models.Album", b =>
+                {
+                    b.HasOne("Albumes.Models.Artist", "Artist")
+                        .WithMany("Albums")
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artist");
+                });
+
+            modelBuilder.Entity("Albumes.Models.Artist", b =>
+                {
+                    b.Navigation("Albums");
                 });
 #pragma warning restore 612, 618
         }

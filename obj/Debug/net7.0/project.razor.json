@@ -18650,6 +18650,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Delete.cshtml",
+      "TargetPath": "Views\\Artist\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -18670,6 +18675,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Details.cshtml",
+      "TargetPath": "Views\\Artist\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Edit.cshtml",
+      "TargetPath": "Views\\Artist\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Index.cshtml",
+      "TargetPath": "Views\\Artist\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Album\\Index.cshtml",
       "TargetPath": "Views\\Album\\Index.cshtml",
       "FileKind": "mvc"
@@ -18687,6 +18707,11 @@
     {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Album\\Delete.cshtml",
       "TargetPath": "Views\\Album\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Create.cshtml",
+      "TargetPath": "Views\\Artist\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Albumes.Data;
 using Albumes.Models;
+using Albumes.ViewModels;
 
 namespace Albumes.Controllers
 {
@@ -20,10 +21,22 @@ namespace Albumes.Controllers
         }
 
         // GET: Album
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? filter)
         {
-            var albumContext = _context.Album.Include(a => a.Artist);
-            return View(await albumContext.ToListAsync());
+            var query = from album in _context.Album select album;
+
+            if(!string.IsNullOrEmpty(filter)){
+                query = query.Where(x => x.Title.Contains(filter));
+            }
+
+            var queryready = await query.Include(x => x.Artist).ToListAsync();
+
+            var viewModel = new AlbumViewModel();
+            viewModel.Albumes = queryready;
+
+            return _context.Album != null ? 
+                        View(viewModel) :
+                        Problem("Entity set 'AlbumContext.Album'  is null.");
         }
 
         // GET: Album/Details/5

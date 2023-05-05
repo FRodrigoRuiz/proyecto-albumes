@@ -1,4 +1,6 @@
-@model IEnumerable<Albumes.Models.Album>
+@using Albumes.ViewModels;
+
+@model AlbumViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,32 +11,38 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form method="get" asp-action="Index">
+    <input asp-for="Filter"></input>
+    <button type="submit">Buscar</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Albumes[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Year)
+                @Html.DisplayNameFor(model => model.Albumes[0].Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Story)
+                @Html.DisplayNameFor(model => model.Albumes[0].Story)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cover)
+                @Html.DisplayNameFor(model => model.Albumes[0].Cover)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genre)
+                @Html.DisplayNameFor(model => model.Albumes[0].Genre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Artist)
+                @Html.DisplayNameFor(model => model.Albumes[0].Artist)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Albumes) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)

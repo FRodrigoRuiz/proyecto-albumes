@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Albumes.Data;
 using Albumes.Models;
+using Albumes.Utils;
+using Albumes.ViewModels;
 
 namespace Albumes.Controllers
 {
@@ -20,10 +22,20 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string NameFilter)
         {
+            var query = from artist in _context.Artist select artist;
+            
+            if (!string.IsNullOrEmpty(NameFilter))
+            {
+                query = query.Where(x => x.Name.Contains(NameFilter));
+            }
+
+            var viewModel = new ArtistViewModel();
+            viewModel.Artists = await query.ToListAsync();
+
               return _context.Artist != null ? 
-                          View(await _context.Artist.ToListAsync()) :
+                          View(viewModel) :
                           Problem("Entity set 'AlbumContext.Artist'  is null.");
         }
 
@@ -58,13 +70,10 @@ namespace Albumes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Artist artist)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(artist);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(artist);
+            _context.Add(artist);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            
         }
 
         // GET: Artist/Edit/5

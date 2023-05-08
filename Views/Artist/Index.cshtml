@@ -1,4 +1,6 @@
-@model IEnumerable<Albumes.Models.Artist>
+@using Albumes.ViewModels;
+
+@model ArtistViewModel;
 
 @{
     ViewData["Title"] = "Index";
@@ -6,20 +8,32 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div>
+    <a class="btn btn-primary" asp-action="Create" role="button">Create New</a>
+</div>
+
+<br>
+
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Artist">
+        <div class="col-6 form-group">
+            <input class="form control" asp-for="NameFilter"/>
+        </div>
+        <button class="btn" type="submit">Buscar artista</button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Artists[0].Name)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Artists) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

@@ -29,10 +29,8 @@ namespace Albumes.Controllers
                 query = query.Where(x => x.Title.Contains(filter));
             }
 
-            var queryready = await query.Include(x => x.Artist).ToListAsync();
-
             var viewModel = new AlbumViewModel();
-            viewModel.Albumes = queryready;
+            viewModel.Albums = await query.ToListAsync();
 
             return _context.Album != null ? 
                         View(viewModel) :

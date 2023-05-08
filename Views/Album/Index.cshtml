@@ -21,28 +21,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Title)
+                @Html.DisplayNameFor(model => model.Albums[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Year)
+                @Html.DisplayNameFor(model => model.Albums[0].Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Story)
+                @Html.DisplayNameFor(model => model.Albums[0].Story)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Cover)
+                @Html.DisplayNameFor(model => model.Albums[0].Cover)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Genre)
+                @Html.DisplayNameFor(model => model.Albums[0].Genre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albumes[0].Artist)
+                @Html.DisplayNameFor(model => model.Albums[0].Artist)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Albumes) {
+@foreach (var item in Model.Albums) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)

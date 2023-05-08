@@ -11,95 +11,92 @@ using Albumes.ViewModels;
 
 namespace Albumes.Controllers
 {
-    public class AlbumController : Controller
+    public class StockController : Controller
     {
         private readonly AlbumContext _context;
 
-        public AlbumController(AlbumContext context)
+        public StockController(AlbumContext context)
         {
             _context = context;
         }
 
-        // GET: Album
-        public async Task<IActionResult> Index(string? nameFilter)
+        // GET: Stock
+        public async Task<IActionResult> Index()
         {
-            var query = from album in _context.Album select album;
-
-            if(!string.IsNullOrEmpty(nameFilter)){
-                query = query.Where(x => x.Title.ToLower().Contains(nameFilter.ToLower()));
-            }
-
-            AlbumViewModel viewModel = new AlbumViewModel();
-            viewModel.Albums = await query.ToListAsync();
-
-            return _context.Album != null ? 
-                        View(viewModel) :
-                        Problem("Entity set 'AlbumContext.Album'  is null.");
+            return _context.Stock != null ? 
+                          View(await _context.Stock.ToListAsync()) :
+                          Problem("Entity set 'MvcInventoryContext.Inventory'  is null.");
         }
 
-        // GET: Album/Details/5
+        // GET: Stock/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Album == null)
+            if (id == null || _context.Stock == null)
             {
                 return NotFound();
             }
 
-            var album = await _context.Album
+            var stock = await _context.Stock
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (album == null)
+            if (stock == null)
             {
                 return NotFound();
             }
 
-            return View(album);
+            return View(stock);
         }
 
-        // GET: Album/Create
-        public IActionResult Create()
+        // GET: Stock/Create
+        public IActionResult Create(int id)
         {
-            return View();
+            StockViewModel stockViewModel = new StockViewModel();
+            stockViewModel.ArtistId = id;
+            stockViewModel.Albums = _context.Album.ToList();
+            stockViewModel.Stock = new Stock();
+
+            return View(stockViewModel);
         }
 
-        // POST: Album/Create
+        // POST: Stock/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Year,Story,Genre,Price")] Album album)
+        public async Task<IActionResult> Create([Bind("Id,AlbumId,ArtistId,Quantity")] Stock stock)
         {
-            if (ModelState.IsValid){
-                _context.Add(album);
+            if (ModelState.IsValid)
+            {
+                _context.Add(stock);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index)); 
+                return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
             }
-            return View(album);
+            return View(stock);
         }
 
-        // GET: Album/Edit/5
+        // GET: Stock/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Album == null)
+            if (id == null || _context.Stock == null)
             {
                 return NotFound();
             }
 
-            var album = await _context.Album.FindAsync(id);
-            if (album == null)
+            var stock = await _context.Stock.FindAsync(id);
+            if (stock == null)
             {
                 return NotFound();
             }
-            return View(album);
+            return View(stock);
         }
 
-        // POST: Album/Edit/5
+        // POST: Stock/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Year,Story,Cover,Genre,Price,ArtistId")] Album album)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AlbumId,ArtistId,Quantity")] Stock stock)
         {
-            if (id != album.Id)
+            if (id != stock.Id)
             {
                 return NotFound();
             }
@@ -108,12 +105,12 @@ namespace Albumes.Controllers
             {
                 try
                 {
-                    _context.Update(album);
+                    _context.Update(stock);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlbumExists(album.Id))
+                    if (!StockExists(stock.Id))
                     {
                         return NotFound();
                     }
@@ -122,51 +119,51 @@ namespace Albumes.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
             }
-            return View(album);
+            return View(stock);
         }
 
-        // GET: Album/Delete/5
+        // GET: Stock/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Album == null)
+            if (id == null || _context.Stock == null)
             {
                 return NotFound();
             }
 
-            var album = await _context.Album
+            var stock = await _context.Stock.Include(x=> x.Album)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (album == null)
+            if (stock == null)
             {
                 return NotFound();
             }
 
-            return View(album);
+            return View(stock);
         }
 
-        // POST: Album/Delete/5
+        // POST: Stock/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Album == null)
+            if (_context.Stock == null)
             {
-                return Problem("Entity set 'AlbumContext.Album'  is null.");
+                return Problem("Entity set 'AlbumContext.Stock'  is null.");
             }
-            var album = await _context.Album.FindAsync(id);
-            if (album != null)
+            var stock = await _context.Stock.FindAsync(id);
+            if (stock != null)
             {
-                _context.Album.Remove(album);
+                _context.Stock.Remove(stock);
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
         }
 
-        private bool AlbumExists(int id)
+        private bool StockExists(int id)
         {
-          return (_context.Album?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Stock?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

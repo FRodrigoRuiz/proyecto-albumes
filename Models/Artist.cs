@@ -1,8 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+using Albumes.Utils;
+
 namespace Albumes.Models;
 
 public class Artist {
     public int Id { get; set; }
+    [Display(Name="Nombre")]
     public string Name { get; set; }
-    
-    public virtual List<Album> Albums { get; set; }
+    [Display(Name="Fecha de nacimiento")]
+    public int Birthdate { get; set; }
+    [Display(Name="Genero musical")]
+    public Genre Genre { get; set; }
+    public virtual List<Stock>? Stocks { get; set; } 
 }

@@ -1,42 +1,37 @@
 @using Albumes.ViewModels;
 
-@model AlbumViewModel
+@model AlbumViewModel;
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>Albumes</h1>
 
 <form method="get" asp-action="Index">
-    <input asp-for="Filter"></input>
-    <button type="submit">Buscar</button>
+    <div class="col-2 form-group">
+        <input class="form-control" asp-for="NameFilter"/> 
+        <button class="btn btn-primary" type="submit">Buscar</button>          
+    </div>
 </form>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Title)
+                @Html.DisplayNameFor(model => model.Album.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Year)
+                @Html.DisplayNameFor(model => model.Album.Story)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Story)
+                @Html.DisplayNameFor(model => model.Album.Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Cover)
+                @Html.DisplayNameFor(model => model.Album.Genre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Albums[0].Artist)
+                @Html.DisplayNameFor(model => model.Album.Price)
             </th>
             <th></th>
         </tr>
@@ -48,24 +43,23 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Story)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cover)
+                @Html.DisplayFor(modelItem => item.Year)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Artist.Id)
+                $@Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <div>
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-primary btn-sm mr-2" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </div>
             </td>
         </tr>
 }

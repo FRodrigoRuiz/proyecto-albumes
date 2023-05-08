@@ -4,6 +4,6 @@ namespace Albumes.ViewModels;
 
 public class AlbumViewModel {
     public List<Album> Albums { get; set; } = new List<Album>();
-    public string? Filter { get; set; }
-    public int ArtistId { get; set; }
+    public string? NameFilter { get; set; }
+    public Album Album { get; set; } = new Album();
 }

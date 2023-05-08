@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Albumes.Models;
-using Albumes.ViewModels;
 
 namespace Albumes.Data
 {
@@ -19,11 +18,13 @@ namespace Albumes.Data
 
         public DbSet<Albumes.Models.Artist> Artist { get; set; } = default!;
 
+        public DbSet<Albumes.Models.Stock> Stock { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder){
-            modelBuilder.Entity<Artist>()
-            .HasMany(p=>p.Albums)
-            .WithOne(p=>p.Artist)
-            .HasForeignKey(p=>p.ArtistId);
+            modelBuilder.Entity<Stock>()
+            .HasOne(i=>i.Album)
+            .WithMany()
+            .HasForeignKey(i=>i.AlbumId);
         }
     }
 }

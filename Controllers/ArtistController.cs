@@ -28,7 +28,7 @@ namespace Albumes.Controllers
             
             if (!string.IsNullOrEmpty(NameFilter))
             {
-                query = query.Where(x => x.Name.Contains(NameFilter));
+                query = query.Where(x => x.Name.ToLower().Contains(NameFilter.ToLower()));
             }
 
             var viewModel = new ArtistViewModel();
@@ -47,7 +47,7 @@ namespace Albumes.Controllers
                 return NotFound();
             }
 
-            var artist = await _context.Artist
+            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (artist == null)
             {
@@ -68,12 +68,15 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Artist artist)
+        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Genre")] Artist artist)
         {
-            _context.Add(artist);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-            
+            if (ModelState.IsValid)
+            {
+                _context.Add(artist);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(artist);
         }
 
         // GET: Artist/Edit/5
@@ -97,7 +100,7 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Artist artist)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Genre")] Artist artist)
         {
             if (id != artist.Id)
             {

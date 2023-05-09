@@ -165,6 +165,14 @@ namespace Albumes.Controllers
             return View(artist);
         }
 
+
+        /*
+        Este es un método que maneja la eliminación de un artista junto con su stock asociado. 
+        Primero, se verifica si la tabla de Artist existe. Luego, se utiliza el método Include para 
+        cargar los datos de la tabla Stock y Album relacionados con el artista que se va a eliminar. 
+        Luego, se utiliza el método RemoveRange para eliminar todo el stock del artista y finalmente 
+        se elimina al artista de la tabla Artist.
+        */
         // POST: Artist/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

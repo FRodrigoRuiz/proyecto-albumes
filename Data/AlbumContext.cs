@@ -21,10 +21,6 @@ namespace Albumes.Data
         public DbSet<Albumes.Models.Stock> Stock { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
-            modelBuilder.Entity<Stock>()
-            .HasOne(i=>i.Album)
-            .WithMany()
-            .HasForeignKey(i=>i.AlbumId);
         }
     }
 }

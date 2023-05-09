@@ -46,6 +46,17 @@ namespace Albumes.Controllers
             return View(stock);
         }
 
+
+        /*
+        Devuelve la vista de creación de un nuevo registro de stock para un artista 
+        específico. Toma como parámetro un ID de artista y utiliza esto para inicializar el modelo de vista 
+        StockViewModel con la propiedad ArtistId correspondiente. Luego, crea una lista de todos los álbumes 
+        almacenados en la base de datos utilizando _context.Album.ToList().
+        A continuación, inicializa la propiedad Stock del modelo de vista con un nuevo objeto de stock vacío.
+        Finalmente, devuelve la vista Create junto con el modelo de vista StockViewModel para que el usuario 
+        pueda ingresar los detalles del nuevo registro de stock.
+        */
+        //Toma como parametro un id 
         // GET: Stock/Create
         public IActionResult Create(int id)
         {

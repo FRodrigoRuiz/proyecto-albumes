@@ -25,7 +25,7 @@ namespace Albumes.Controllers
         {
             return _context.Stock != null ? 
                           View(await _context.Stock.ToListAsync()) :
-                          Problem("Entity set 'MvcInventoryContext.Inventory'  is null.");
+                          Problem("Entity set 'AlbumContext.Stock'  is null.");
         }
 
         // GET: Stock/Details/5

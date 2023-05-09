@@ -61,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.Album.Story)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Album.Price)
+                $@Html.DisplayFor(modelItem => item.Album.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -77,5 +77,5 @@
 </table>
 </div>
 <div>   
-    <a class="btn btn-primary" asp-controller="Stock" asp-action="Create" asp-route-id="@Model.Id">Agregar cantidad al stock</a>
+    <a class="btn btn-primary" asp-controller="Stock" asp-action="Create" asp-route-id="@Model.Id">Agregar stock</a>
 </div>

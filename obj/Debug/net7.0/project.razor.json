@@ -18730,6 +18730,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Album\\Stock.cshtml",
+      "TargetPath": "Views\\Album\\Stock.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Delete.cshtml",
       "TargetPath": "Views\\Artist\\Delete.cshtml",
       "FileKind": "mvc"

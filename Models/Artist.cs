@@ -7,7 +7,7 @@ public class Artist {
     public int Id { get; set; }
     [Display(Name="Nombre")]
     public string Name { get; set; }
-    [Display(Name="Fecha de nacimiento")]
+    [Display(Name="Año de nacimiento")]
     public int Birthdate { get; set; }
     [Display(Name="Genero musical")]
     public Genre Genre { get; set; }

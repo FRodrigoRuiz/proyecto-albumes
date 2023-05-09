@@ -22,13 +22,13 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist
-        public async Task<IActionResult> Index(string NameFilter)
+        public async Task<IActionResult> Index(string nameFilter)
         {
             var query = from artist in _context.Artist select artist;
             
-            if (!string.IsNullOrEmpty(NameFilter))
+            if (!string.IsNullOrEmpty(nameFilter))
             {
-                query = query.Where(x => x.Name.ToLower().Contains(NameFilter.ToLower()));
+                query = query.Where(x => x.Name.ToLower().Contains(nameFilter.ToLower()));
             }
 
             var viewModel = new ArtistViewModel();
@@ -174,9 +174,11 @@ namespace Albumes.Controllers
             {
                 return Problem("Entity set 'AlbumContext.Artist'  is null.");
             }
-            var artist = await _context.Artist.FindAsync(id);
+            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (artist != null)
             {
+                _context.Stock.RemoveRange(artist.Stocks);
                 _context.Artist.Remove(artist);
             }
             

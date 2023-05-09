@@ -8,7 +8,7 @@ public class Album {
 
     [Display(Name="Titulo del album")]
     public string Title { get; set; }
-    [Display(Name="Fecha de lanzamiento")]
+    [Display(Name="Año de lanzamiento")]
     public int Year { get; set; }
     [Display(Name="Informacion del album")]
     public string Story { get; set; }

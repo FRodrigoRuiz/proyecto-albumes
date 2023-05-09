@@ -1,13 +1,21 @@
 @model Albumes.Models.Artist
 
 @{
-    ViewData["Title"] = "Stock";
+    ViewData["Title"] = "Details";
 }
 
-<h1>@Html.DisplayFor(model => model.Name)</h1>
+<h1>Detalles</h1>
 
 <div>
+    <h4>Artista</h4>
+    <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Birthdate)
         </dt>
@@ -22,60 +30,7 @@
         </dd>
     </dl>
 </div>
-
-<h1>Stocks de albumes</h1>
 <div>
-    <table class="table">
-    <thead>
-        <tr>
-            <th>
-                Titulo
-            </th>
-            <th>
-                Fecha de lanzamiento
-            </th>
-            <th>
-                Informacion
-            </th>
-            <th>
-                Precio
-            </th>
-            <th>
-                Cantidad
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@if (Model.Stocks != null)
-{
-    @foreach (var item in Model.Stocks) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Album.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Album.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Album.Story)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Album.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                <a class="btn btn-primary"asp-controller="Stock" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                <a class="btn btn-danger"asp-controller="Stock" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
-        </tr>
-    }
-}
-    </tbody>
-</table>
-</div>
-<div>   
-    <a class="btn btn-primary" asp-controller="Stock" asp-action="Create" asp-route-id="@Model.Id">Agregar cantidad al stock</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Volver</a>
 </div>

@@ -68,7 +68,7 @@ namespace Albumes.Controllers
             {
                 _context.Add(stock);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
+                return RedirectToAction("Stock", "Artist", new { id = stock.ArtistId });
             }
             return View(stock);
         }
@@ -119,7 +119,7 @@ namespace Albumes.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
+                return RedirectToAction("Stock", "Artist", new { id = stock.ArtistId });
             }
             return View(stock);
         }
@@ -158,7 +158,7 @@ namespace Albumes.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction("Details", "Artist", new { id = stock.ArtistId });
+            return RedirectToAction("Stock", "Artist", new { id = stock.ArtistId });
         }
 
         private bool StockExists(int id)

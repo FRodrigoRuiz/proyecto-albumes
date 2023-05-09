@@ -39,6 +39,23 @@ namespace Albumes.Controllers
                           Problem("Entity set 'AlbumContext.Artist'  is null.");
         }
 
+        public async Task<IActionResult> Stock(int? id)
+        {
+            if (id == null || _context.Artist == null)
+            {
+                return NotFound();
+            }
+
+            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (artist == null)
+            {
+                return NotFound();
+            }
+
+            return View(artist);
+        }
+
         // GET: Artist/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,7 +64,7 @@ namespace Albumes.Controllers
                 return NotFound();
             }
 
-            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
+            var artist = await _context.Artist
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (artist == null)
             {

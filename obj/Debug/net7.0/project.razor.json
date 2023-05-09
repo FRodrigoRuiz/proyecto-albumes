@@ -18735,6 +18735,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Stock.cshtml",
+      "TargetPath": "Views\\Artist\\Stock.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Create.cshtml",
       "TargetPath": "Views\\Artist\\Create.cshtml",
       "FileKind": "mvc"

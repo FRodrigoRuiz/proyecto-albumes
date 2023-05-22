@@ -50,7 +50,8 @@ Próximas mejoras y nuevas funciones:
   - Copia la dirección URL del repositorio. 
   - ![2](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/a53ccc4d-9d13-437d-8831-6264b156d388)
   - Abra Git Bash. Cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio. Escriba git clone y           pegue la dirección URL que ha copiado antes.![3](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/4b7f02e9-e487-4684-b379-00388897842c)
-  - Presione "Enter" para crear el clon local.![4](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/3f4a97ce-f23d-420d-b343-28f320fbbf06)
+  - Presione "Enter" para crear el clon local.
+  - ![4](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/3f4a97ce-f23d-420d-b343-28f320fbbf06)
   - Abra la carpeta del proyecto con Visual Studio Code
   - Abra la terminal presionando "Ctrl" + "ñ"
   - Ejecute el comando "dotnet run" para iniciar la aplicación

@@ -46,7 +46,8 @@ Próximas mejoras y nuevas funciones:
 - Para poder ejecutar el proyecto siga los siguientes pasos:
   - Descargue e instale git para su sistema operativo desde el siguiente enlace: https://git-scm.com/
   - Descargue e instale Visual Studio Code: https://code.visualstudio.com/
-  - En GitHub.com, navega a la página principal del repositorio. Encima de la lista de archivos, haga clic en Code.![1](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/79a83f41-4e3d-4c73-b9b5-58b12074e1fc)
+  - En GitHub.com, navega a la página principal del repositorio. Encima de la lista de archivos, haga clic en Code.
+  - ![1](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/79a83f41-4e3d-4c73-b9b5-58b12074e1fc)
   - Copia la dirección URL del repositorio. 
   - ![2](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/a53ccc4d-9d13-437d-8831-6264b156d388)
   - Abra Git Bash. Cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio. Escriba git clone y           pegue la dirección URL que ha copiado antes.![3](https://github.com/FRodrigoRuiz/proyecto-albumes/assets/93401989/4b7f02e9-e487-4684-b379-00388897842c)

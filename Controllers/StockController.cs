@@ -8,36 +8,40 @@ using Microsoft.EntityFrameworkCore;
 using Albumes.Data;
 using Albumes.Models;
 using Albumes.ViewModels;
+using Albumes.Services;
 
 namespace Albumes.Controllers
 {
     public class StockController : Controller
     {
-        private readonly AlbumContext _context;
+        private readonly IStockService _stockService;
+        private readonly IAlbumService _albumService;
 
-        public StockController(AlbumContext context)
+        public StockController(IStockService stockService, IAlbumService albumService)
         {
-            _context = context;
+            _stockService = stockService;
+            _albumService = albumService;
         }
 
         // GET: Stock
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return _context.Stock != null ? 
-                          View(await _context.Stock.ToListAsync()) :
+            var stocks = _stockService.GetAll();
+            return stocks != null ? 
+                          View(stocks) :
                           Problem("Entity set 'AlbumContext.Stock'  is null.");
         }
 
         // GET: Stock/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
-            if (id == null || _context.Stock == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var stock = await _context.Stock
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var stock = _stockService.GetById(id.Value);
+
             if (stock == null)
             {
                 return NotFound();
@@ -46,26 +50,15 @@ namespace Albumes.Controllers
             return View(stock);
         }
 
-
-        /*
-        Devuelve la vista de creación de un nuevo registro de stock para un artista 
-        específico. Toma como parámetro un ID de artista y utiliza esto para inicializar el modelo de vista 
-        StockViewModel con la propiedad ArtistId correspondiente. Luego, crea una lista de todos los álbumes 
-        almacenados en la base de datos utilizando _context.Album.ToList().
-        A continuación, inicializa la propiedad Stock del modelo de vista con un nuevo objeto de stock vacío.
-        Finalmente, devuelve la vista Create junto con el modelo de vista StockViewModel para que el usuario 
-        pueda ingresar los detalles del nuevo registro de stock.
-        */
-        //Toma como parametro un id 
         // GET: Stock/Create
         public IActionResult Create(int id)
         {
-            StockViewModel stockViewModel = new StockViewModel();
-            stockViewModel.ArtistId = id;
-            stockViewModel.Albums = _context.Album.ToList();
-            stockViewModel.Stock = new Stock();
+            StockCreateViewModel stockCreate = new StockCreateViewModel();
+            stockCreate.ArtistId = id;
+            stockCreate.Albums = _albumService.GetAll().Albums;
+            stockCreate.Stock = new Stock();
 
-            return View(stockViewModel);
+            return View(stockCreate);
         }
 
         // POST: Stock/Create
@@ -73,26 +66,34 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AlbumId,ArtistId,Quantity")] Stock stock)
+        public IActionResult Create([Bind("Id,AlbumId,ArtistId,Quantity")] Stock stock)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(stock);
-                await _context.SaveChangesAsync();
+                var stockAlbum = _stockService.GetStockByArtistIdAndAlbumId(stock.ArtistId.Value, stock.AlbumId.Value);
+                if(stockAlbum == null){
+                    _stockService.Update(stock);                    
+                } else{
+                    int quantity = stockAlbum.Quantity + stock.Quantity;
+                    stockAlbum.Quantity = quantity;
+                    _stockService.Update(stockAlbum);
+                }
+
                 return RedirectToAction("Stock", "Artist", new { id = stock.ArtistId });
             }
             return View(stock);
         }
 
         // GET: Stock/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.Stock == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var stock = await _context.Stock.FindAsync(id);
+            var stock = _stockService.GetById(id.Value);
+
             if (stock == null)
             {
                 return NotFound();
@@ -116,8 +117,7 @@ namespace Albumes.Controllers
             {
                 try
                 {
-                    _context.Update(stock);
-                    await _context.SaveChangesAsync();
+                    _stockService.Update(stock);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -136,15 +136,15 @@ namespace Albumes.Controllers
         }
 
         // GET: Stock/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null || _context.Stock == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var stock = await _context.Stock.Include(x=> x.Album)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var stock = _stockService.GetById(id.Value);
+
             if (stock == null)
             {
                 return NotFound();
@@ -156,25 +156,20 @@ namespace Albumes.Controllers
         // POST: Stock/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            if (_context.Stock == null)
-            {
-                return Problem("Entity set 'AlbumContext.Stock'  is null.");
-            }
-            var stock = await _context.Stock.FindAsync(id);
+            var stock = _stockService.GetById(id);
             if (stock != null)
             {
-                _context.Stock.Remove(stock);
+                _stockService.Delete(stock);
             }
-            
-            await _context.SaveChangesAsync();
+
             return RedirectToAction("Stock", "Artist", new { id = stock.ArtistId });
         }
 
         private bool StockExists(int id)
         {
-          return (_context.Stock?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _stockService.GetById(id) != null;
         }
     }
 }

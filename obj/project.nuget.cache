@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5EmDpdHv91GogQZK8vEMkgNuMyVe29m/D8Rc7RTBTZm3qkSAybOftydlzkoB02ntCpXHnYxYSb009JftOa41TQ==",
+  "dgSpecHash": "yLVhdhNCD4N5XcUNvII8uDLsYg7tBqR9NXrhn+Uid4YA1xZy1b2Xw/jSW2s5xo5eCrJ2I1eFxyNNKUliIXlDUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\farid\\OneDrive\\Escritorio\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Albumes.csproj",
+  "projectFilePath": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Albumes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\farid\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\farid\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",

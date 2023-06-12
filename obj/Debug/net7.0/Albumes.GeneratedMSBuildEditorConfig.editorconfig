@@ -9,105 +9,101 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Albumes
 build_property.RootNamespace = Albumes
-build_property.ProjectDir = C:\Users\farid\OneDrive\Escritorio\ProyectoParcialHerramientasDeProgramacion\Albumes\
+build_property.ProjectDir = C:\Users\farid\OneDrive\Escritorio\Herramientas de Programacion\ProyectoParcialHerramientasDeProgramacion\Albumes\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\farid\OneDrive\Escritorio\ProyectoParcialHerramientasDeProgramacion\Albumes
+build_property.MSBuildProjectDirectory = C:\Users\farid\OneDrive\Escritorio\Herramientas de Programacion\ProyectoParcialHerramientasDeProgramacion\Albumes
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Create.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Delete.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Details.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Edit.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Index.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Stock.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cU3RvY2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Create.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Delete.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Details.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Edit.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Index.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Stock.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Artist/Stock.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XFN0b2NrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Home/Index.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Home/Privacy.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/Error.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Create.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Delete.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Details.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Edit.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Index.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewImports.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewStart.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_Layout.cshtml]
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zuye7n5e35

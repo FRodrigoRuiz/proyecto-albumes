@@ -1,24 +1,24 @@
-@model Albumes.Models.Artist
+@model Albumes.ViewModels.ArtistViewModel;
 
 @{
     ViewData["Title"] = "Stock";
 }
 
-<h1>@Html.DisplayFor(model => model.Name)</h1>
+<h1>@Html.DisplayFor(model => model.Artist.Name)</h1>
 
 <div>
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Birthdate)
+            @Html.DisplayNameFor(model => model.Artist.Birthdate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Birthdate)
+            @Html.DisplayFor(model => model.Artist.Birthdate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
+            @Html.DisplayNameFor(model => model.Artist.Genre)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
+            @Html.DisplayFor(model => model.Artist.Genre)
         </dd>
     </dl>
 </div>
@@ -26,14 +26,20 @@
 <h1>Stock albumes</h1>
 
 <div>   
-    <a class="btn btn-primary" asp-controller="Stock" asp-action="Create" asp-route-id="@Model.Id">
+    <a class="btn btn-primary" asp-controller="Stock" asp-action="Create" asp-route-id="@Model.Artist.Id">
         <i class="bi bi-plus"></i>
         Agregar stock
     </a>
 </div>
 
+<label for="quantity" class="ms-16">Cantidad de albumes en stock:</label>
+<span id="quantity" class="badge bg-primary ms-2">@Model.quantityInStock</span>
+
+<label for="total">Total de capital invertido:</label>
+<span id="total" class="badge bg-success ms-2">$@Model.total</span>
+
 <div class="row mt-4">
-    @foreach (var item in Model.Stocks)
+    @foreach (var item in Model.Artist.Stocks)
     {
         <div class="col-12">
             <div class="card mb-3">

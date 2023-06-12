@@ -9,45 +9,45 @@ using Albumes.Data;
 using Albumes.Models;
 using Albumes.Utils;
 using Albumes.ViewModels;
+using Albumes.Services;
 
 namespace Albumes.Controllers
 {
     public class ArtistController : Controller
     {
-        private readonly AlbumContext _context;
+        private readonly IArtistService _artistService;
 
-        public ArtistController(AlbumContext context)
+        public ArtistController(IArtistService artistService)
         {
-            _context = context;
+            _artistService = artistService;
         }
 
         // GET: Artist
-        public async Task<IActionResult> Index(string nameFilter)
+        public IActionResult Index(string nameFilter)
         {
-            var query = from artist in _context.Artist select artist;
+            ArtistViewModel artists;
             
             if (!string.IsNullOrEmpty(nameFilter))
             {
-                query = query.Where(x => x.Name.ToLower().Contains(nameFilter.ToLower()));
+                artists = _artistService.GetAll(nameFilter);
+            }else{
+                artists = _artistService.GetAll();
             }
 
-            var viewModel = new ArtistViewModel();
-            viewModel.Artists = await query.ToListAsync();
-
-              return _context.Artist != null ? 
-                          View(viewModel) :
-                          Problem("Entity set 'AlbumContext.Artist'  is null.");
+            return artists != null ? 
+                    View(artists) :
+                    Problem("Entity set 'AlbumContext.Artist'  is null.");
         }
 
         public async Task<IActionResult> Stock(int? id)
         {
-            if (id == null || _context.Artist == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var artist = _artistService.GetArtistWithStockById(id.Value);
+
             if (artist == null)
             {
                 return NotFound();
@@ -59,19 +59,24 @@ namespace Albumes.Controllers
         // GET: Artist/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Artist == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var artist = await _context.Artist
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var artist = _artistService.GetById(id.Value);
+
             if (artist == null)
             {
                 return NotFound();
             }
 
-            return View(artist);
+            var viewModel = new ArtistDetailViewModel();
+            viewModel.Name = artist.Name;
+            viewModel.Birthdate = artist.Birthdate;
+            viewModel.Genre = artist.Genre;
+
+            return View(viewModel);
         }
 
         // GET: Artist/Create
@@ -89,8 +94,7 @@ namespace Albumes.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(artist);
-                await _context.SaveChangesAsync();
+                _artistService.Update(artist);
                 return RedirectToAction(nameof(Index));
             }
             return View(artist);
@@ -99,12 +103,12 @@ namespace Albumes.Controllers
         // GET: Artist/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Artist == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var artist = await _context.Artist.FindAsync(id);
+            var artist = _artistService.GetById(id.Value);
             if (artist == null)
             {
                 return NotFound();
@@ -128,8 +132,7 @@ namespace Albumes.Controllers
             {
                 try
                 {
-                    _context.Update(artist);
-                    await _context.SaveChangesAsync();
+                    _artistService.Update(artist);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -150,13 +153,13 @@ namespace Albumes.Controllers
         // GET: Artist/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Artist == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var artist = await _context.Artist
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var artist = _artistService.GetById(id.Value);
+            
             if (artist == null)
             {
                 return NotFound();
@@ -178,25 +181,18 @@ namespace Albumes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Artist == null)
+            var artistViewModel = _artistService.GetArtistWithStockById(id);
+            if (artistViewModel.Artist != null)
             {
-                return Problem("Entity set 'AlbumContext.Artist'  is null.");
-            }
-            var artist = await _context.Artist.Include(x=> x.Stocks).ThenInclude(i => i.Album)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (artist != null)
-            {
-                _context.Stock.RemoveRange(artist.Stocks);
-                _context.Artist.Remove(artist);
+                _artistService.Delete(artistViewModel.Artist);
             }
             
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ArtistExists(int id)
         {
-          return (_context.Artist?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _artistService.GetById(id) != null;
         }
     }
 }

@@ -97,7 +97,7 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Year,Story,Cover,Genre,Price,ArtistId")] Album album)
+        public IActionResult Edit(int id, [Bind("Id,Title,Year,Story,Cover,Genre,Price,ArtistId")] Album album)
         {
             if (id != album.Id)
             {
@@ -127,7 +127,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Album/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {

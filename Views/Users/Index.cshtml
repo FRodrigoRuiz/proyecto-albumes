@@ -1,0 +1,32 @@
+@using Albumes.ViewModels;
+@model Albumes.ViewModels.UserSearchViewModel;
+
+<h3>Usuarios</h3>
+<form method="get" asp-action="Index" class="row g-3">
+    <div class="col-auto">
+        <input class="form-control" asp-for="UsernameFilter" placeholder="Nombre usuario"/>        
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-primary" type="submit">Buscar</button>          
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Users) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">Asignar Role</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

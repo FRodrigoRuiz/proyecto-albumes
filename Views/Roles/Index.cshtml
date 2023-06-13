@@ -1,0 +1,31 @@
+@model Albumes.ViewModels.RolesSearchViewModel;
+
+<h3>Roles</h3>
+
+<form method="get" asp-action="Index" class="row g-3">
+    <div class="col-auto">
+        <input class="form-control" asp-for="nameFilter" placeholder="Nombre"/>           
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-primary" type="submit">Buscar roles</button>          
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Roles) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-success" asp-action="Create">Agregar rol</a>
+</div>

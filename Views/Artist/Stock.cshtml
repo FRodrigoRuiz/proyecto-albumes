@@ -32,11 +32,6 @@
     </a>
 </div>
 
-<label for="quantity" class="ms-16">Cantidad de albumes en stock:</label>
-<span id="quantity" class="badge bg-primary ms-2">@Model.quantityInStock</span>
-
-<label for="total">Total de capital invertido:</label>
-<span id="total" class="badge bg-success ms-2">$@Model.total</span>
 
 <div class="row mt-4">
     @foreach (var item in Model.Artist.Stocks)
@@ -84,6 +79,11 @@
     }
 </div>
 
+<label for="quantity" class="ms-16">Cantidad de albumes en stock:</label>
+<span id="quantity">@Model.quantityInStock</span>
+
+<label for="total">Valor total del stock:</label>
+<span id="total">$@Model.total</span>
 
 <div>
     <a asp-action="Index" class="btn btn-primary">Volver a la lista</a>

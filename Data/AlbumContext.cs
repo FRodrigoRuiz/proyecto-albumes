@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Albumes.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Albumes.Data
 {
-    public class AlbumContext : DbContext
+    public class AlbumContext : IdentityDbContext
     {
         public AlbumContext (DbContextOptions<AlbumContext> options)
             : base(options)
@@ -20,18 +22,15 @@ namespace Albumes.Data
 
         public DbSet<Albumes.Models.Stock> Stock { get; set; } = default!;
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder){
-            modelBuilder.Entity<Artist>()
-            .HasMany(e => e.Stocks)
-            .WithOne(e => e.Artist)
-            .HasForeignKey(e => e.ArtistId)
-            .IsRequired();
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Album>()
-            .HasMany(e => e.Stocks)
-            .WithOne(e => e.Album)
-            .HasForeignKey(e => e.AlbumId)
-            .IsRequired();
+            modelBuilder.Entity<Stock>()
+            .HasOne(i => i.Album)
+            .WithMany()
+            .HasForeignKey(i => i.AlbumId);
+            
         }
     }
 }

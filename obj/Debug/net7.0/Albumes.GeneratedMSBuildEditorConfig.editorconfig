@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\farid\OneDrive\Escritorio\Herramientas de Programacion\ProyectoParcialHerramientasDeProgramacion\Albumes
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Album/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxidW1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,8 +72,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -94,6 +110,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Stock/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewImports.cshtml]

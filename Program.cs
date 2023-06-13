@@ -2,17 +2,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Albumes.Data;
 using Albumes.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AlbumContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AlbumContext") ?? throw new InvalidOperationException("Connection string 'AlbumContext' not found.")));
 
+builder.Services.AddDefaultIdentity<IdentityUser>()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<AlbumContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IArtistService, ArtistService>();
 builder.Services.AddScoped<IAlbumService, AlbumService>();
 builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<IRolesService, RolesService>();
 
 var app = builder.Build();
 
@@ -34,5 +40,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+    
+app.MapRazorPages();
 
 app.Run();

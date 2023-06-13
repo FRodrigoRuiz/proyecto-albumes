@@ -39,7 +39,7 @@ namespace Albumes.Controllers
                     Problem("Entity set 'AlbumContext.Artist'  is null.");
         }
 
-        public async Task<IActionResult> Stock(int? id)
+        public IActionResult Stock(int? id)
         {
             if (id == null)
             {
@@ -57,7 +57,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -90,7 +90,7 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Birthdate,Genre")] Artist artist)
+        public IActionResult Create([Bind("Id,Name,Birthdate,Genre")] Artist artist)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -121,7 +121,7 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Birthdate,Genre")] Artist artist)
+        public IActionResult Edit(int id, [Bind("Id,Name,Birthdate,Genre")] Artist artist)
         {
             if (id != artist.Id)
             {
@@ -151,7 +151,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -179,7 +179,7 @@ namespace Albumes.Controllers
         // POST: Artist/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             var artistViewModel = _artistService.GetArtistWithStockById(id);
             if (artistViewModel.Artist != null)

@@ -9,9 +9,11 @@ using Albumes.Data;
 using Albumes.Models;
 using Albumes.ViewModels;
 using Albumes.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Albumes.Controllers
 {
+    [Authorize]
     public class AlbumController : Controller
     {
         private readonly IAlbumService _albumService;
@@ -22,6 +24,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Album
+        [Authorize(Roles = "admin, empleado")]
         public IActionResult Index(string? nameFilter)
         {
             AlbumViewModel albums;

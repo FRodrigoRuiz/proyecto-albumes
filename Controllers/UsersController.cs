@@ -7,6 +7,7 @@ using Albumes.Services;
 
 namespace Albumes.Controllers;
 
+[Authorize]
 public class UsersController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -20,6 +21,7 @@ public class UsersController : Controller
         _usersService = usersService;
     }
 
+    [Authorize(Roles = "admin")]
     public IActionResult Index(string? usernameFilter)
     {
         UserSearchViewModel userSearchViewModel;
@@ -35,6 +37,7 @@ public class UsersController : Controller
         return View(userSearchViewModel);
     }
 
+    [Authorize]
     public async Task<IActionResult> Edit(string id)
     {
         var userViewModel = await _usersService.GetById(id);
@@ -42,7 +45,6 @@ public class UsersController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public IActionResult Edit(UserEditViewModel model)
     {
         _usersService.Update(model);

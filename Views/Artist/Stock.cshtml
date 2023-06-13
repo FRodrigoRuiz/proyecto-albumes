@@ -79,13 +79,17 @@
     }
 </div>
 
-<label for="quantity" class="ms-16">Cantidad de albumes en stock:</label>
-<span id="quantity">@Model.quantityInStock</span>
+<div class="badge bg-primary p-2">
+    <label for="quantity">Cantidad de albumes en stock:</label>
+    <span id="quantity">@Model.quantityInStock</span>
+</div>
 
-<label for="total">Valor total del stock:</label>
-<span id="total">$@Model.total</span>
+<div class="badge bg-primary p-2"> 
+    <label for="total">Valor total del stock:</label>
+    <span id="total">$@Model.total</span>
+</div>
 
-<div>
+<div class="mt-2">
     <a asp-action="Index" class="btn btn-primary">Volver a la lista</a>
 </div>
 

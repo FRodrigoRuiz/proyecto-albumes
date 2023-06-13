@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Albumes.Controllers;
 
+[Authorize]
 public class RolesController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -20,6 +21,7 @@ public class RolesController : Controller
         _rolesService = rolesService;
     }
     
+    [Authorize(Roles = "admin")]
     public IActionResult Index(string? nameFilter)
     {       
         List<IdentityRole> rolesList;

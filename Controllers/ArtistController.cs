@@ -10,9 +10,11 @@ using Albumes.Models;
 using Albumes.Utils;
 using Albumes.ViewModels;
 using Albumes.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Albumes.Controllers
 {
+    [Authorize]
     public class ArtistController : Controller
     {
         private readonly IArtistService _artistService;
@@ -80,6 +82,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Create
+        [Authorize(Roles = "admin, empleado")]
         public IActionResult Create()
         {
             return View();
@@ -101,6 +104,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Edit/5
+        [Authorize(Roles = "admin, empleado")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -151,6 +155,7 @@ namespace Albumes.Controllers
         }
 
         // GET: Artist/Delete/5
+        [Authorize(Roles = "admin, empleado")]
         public IActionResult Delete(int? id)
         {
             if (id == null)

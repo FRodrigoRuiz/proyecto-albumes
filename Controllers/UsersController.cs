@@ -41,6 +41,8 @@ public class UsersController : Controller
         return View(userViewModel);
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Edit(UserEditViewModel model)
     {
         _usersService.Update(model);

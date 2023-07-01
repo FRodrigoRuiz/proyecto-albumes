@@ -19,6 +19,7 @@ builder.Services.AddScoped<IAlbumService, AlbumService>();
 builder.Services.AddScoped<IStockService, StockService>();
 builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IRolesService, RolesService>();
+builder.Services.AddScoped<ISongService, SongService>();
 
 var app = builder.Build();
 

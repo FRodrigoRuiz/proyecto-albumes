@@ -17,4 +17,5 @@ public class Album {
     [Display(Name="Precio")]
     public int Price { get; set; }
     public virtual List<Stock>? Stocks { get; set; } 
+    public virtual List<Song>? Songs { get; set; }
 }

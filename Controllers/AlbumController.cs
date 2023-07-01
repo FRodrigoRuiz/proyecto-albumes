@@ -13,18 +13,18 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Albumes.Controllers
 {
-    [Authorize]
     public class AlbumController : Controller
     {
         private readonly IAlbumService _albumService;
+        private readonly ISongService _songService;
 
-        public AlbumController(IAlbumService albumService)
+        public AlbumController(IAlbumService albumService, ISongService songService)
         {
             _albumService = albumService;
+            _songService = songService;
         }
 
         // GET: Album
-        [Authorize(Roles = "admin, empleado")]
         public IActionResult Index(string? nameFilter)
         {
             AlbumViewModel albums;
@@ -61,7 +61,10 @@ namespace Albumes.Controllers
         // GET: Album/Create
         public IActionResult Create()
         {
-            return View();
+            AlbumCreateViewModel model = new AlbumCreateViewModel();
+            var songs = _songService.GetAll();
+            model.Songs = songs.Songs;
+            return View(model);
         }
 
         // POST: Album/Create
@@ -69,14 +72,14 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Title,Year,Story,Genre,Price")] Album album)
+        public IActionResult Create(AlbumCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                _albumService.Update(album);
+                _albumService.Update(model);
                 return RedirectToAction(nameof(Index));
             }
-            return View(album);
+            return View(model.Album);
         }
 
         // GET: Album/Edit/5
@@ -100,9 +103,9 @@ namespace Albumes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,Title,Year,Story,Cover,Genre,Price,ArtistId")] Album album)
+        public async Task<IActionResult> Edit(int id, AlbumCreateViewModel model)
         {
-            if (id != album.Id)
+            if (id != model.Album.Id)
             {
                 return NotFound();
             }
@@ -111,11 +114,11 @@ namespace Albumes.Controllers
             {
                 try
                 {
-                    _albumService.Update(album);
+                    _albumService.Update(model);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlbumExists(album.Id))
+                    if (!AlbumExists(model.Album.Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +129,7 @@ namespace Albumes.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(album);
+            return View(model.Album);
         }
 
         // GET: Album/Delete/5

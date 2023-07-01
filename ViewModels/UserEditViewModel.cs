@@ -5,6 +5,7 @@ namespace Albumes.ViewModels;
 
 public class UserEditViewModel
 {
+    [Display(Name="Nombre de Usuario")]
     public string UserName { get; set; }
     public string Email { get; set; }
     [Display(Name="Rol")]

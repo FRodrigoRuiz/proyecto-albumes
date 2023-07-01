@@ -22,6 +22,8 @@ namespace Albumes.Data
 
         public DbSet<Albumes.Models.Stock> Stock { get; set; } = default!;
 
+        public DbSet<Albumes.Models.Song> Song { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -31,6 +33,10 @@ namespace Albumes.Data
             .WithMany()
             .HasForeignKey(i => i.AlbumId);
             
+            modelBuilder.Entity<Album>()
+            .HasMany(p=> p.Songs)
+            .WithMany(p=> p.Albums)
+            .UsingEntity("AlbumSong");  
         }
     }
 }

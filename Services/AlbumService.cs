@@ -37,13 +37,19 @@ public class AlbumService : IAlbumService
 
     public Album? GetById(int id)
     {
-        var album = _context.Album.FirstOrDefault(m => m.Id == id);
-        return album;      
+        var album = _context.Album.Include(x => x.Songs).FirstOrDefault(m => m.Id == id);
+        return album;   
     }
 
-    public void Update(Album obj)
+    public void Update(AlbumCreateViewModel model)
     {
-        _context.Update(obj);
+        List<Song> songs;
+        var album = model.Album;
+        if(model.SelectedSongs != null && model.SelectedSongs.Count() > 0){
+            songs = _context.Song.Where(a => model.SelectedSongs.Contains(a.Id)).ToList();
+            album.Songs = songs;
+        }     
+        _context.Update(album);
         _context.SaveChanges();
     }
     private IQueryable<Album> GetQuery()

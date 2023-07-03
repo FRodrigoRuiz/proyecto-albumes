@@ -124,12 +124,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/AssignRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQXNzaWduUm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/Users/RemoveRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVtb3ZlUm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/farid/OneDrive/Escritorio/Herramientas de Programacion/ProyectoParcialHerramientasDeProgramacion/Albumes/Views/_ViewImports.cshtml]

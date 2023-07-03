@@ -14,11 +14,6 @@ public class UsersService : IUsersService
         _roleManager = roleManager;
     }
 
-    public void Delete(UserEditViewModel obj)
-    {
-        throw new NotImplementedException();
-    }
-
     public List<IdentityUser> GetAll()
     {
        return _userManager.Users.ToList();
@@ -41,7 +36,7 @@ public class UsersService : IUsersService
         return userViewModel;
     }
 
-    public async void Update(UserEditViewModel obj)
+    public async void Assign(UserEditViewModel obj)
     {
         var user = await _userManager.FindByNameAsync(obj.UserName);
         if (user != null)
@@ -50,4 +45,12 @@ public class UsersService : IUsersService
         }
     }
 
+    public async void Remove(UserEditViewModel obj)
+    {
+        var user = await _userManager.FindByNameAsync(obj.UserName);
+        if (user != null)
+        {
+             await _userManager.RemoveFromRoleAsync(user, obj.Role);
+        }
+    }
 }

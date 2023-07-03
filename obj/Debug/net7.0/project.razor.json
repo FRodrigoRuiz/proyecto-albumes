@@ -18700,6 +18700,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Users\\AssignRole.cshtml",
+      "TargetPath": "Views\\Users\\AssignRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -18727,11 +18732,6 @@
     {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Roles\\Index.cshtml",
       "TargetPath": "Views\\Roles\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Users\\Edit.cshtml",
-      "TargetPath": "Views\\Users\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18777,6 +18777,11 @@
     {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Delete.cshtml",
       "TargetPath": "Views\\Artist\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Users\\RemoveRole.cshtml",
+      "TargetPath": "Views\\Users\\RemoveRole.cshtml",
       "FileKind": "mvc"
     },
     {

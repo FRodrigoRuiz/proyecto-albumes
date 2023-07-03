@@ -29,7 +29,7 @@ namespace Albumes.Migrations
 
                     b.HasIndex("SongsId");
 
-                    b.ToTable("AlbumSong");
+                    b.ToTable("AlbumSong", (string)null);
                 });
 
             modelBuilder.Entity("Albumes.Models.Album", b =>
@@ -57,7 +57,7 @@ namespace Albumes.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Album");
+                    b.ToTable("Album", (string)null);
                 });
 
             modelBuilder.Entity("Albumes.Models.Artist", b =>
@@ -78,7 +78,7 @@ namespace Albumes.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Artist");
+                    b.ToTable("Artist", (string)null);
                 });
 
             modelBuilder.Entity("Albumes.Models.Song", b =>
@@ -97,7 +97,7 @@ namespace Albumes.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Song");
+                    b.ToTable("Song", (string)null);
                 });
 
             modelBuilder.Entity("Albumes.Models.Stock", b =>
@@ -126,7 +126,7 @@ namespace Albumes.Migrations
 
                     b.HasIndex("ArtistId");
 
-                    b.ToTable("Stock");
+                    b.ToTable("Stock", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

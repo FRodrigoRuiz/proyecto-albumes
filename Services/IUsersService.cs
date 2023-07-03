@@ -8,7 +8,7 @@ public interface IUsersService
     List<IdentityUser> GetAll();
 
     List<IdentityUser> GetAll(string usernameFilter);
-    void Update(UserEditViewModel obj);
-    void Delete(UserEditViewModel obj);
+    void Assign(UserEditViewModel obj);
+    void Remove(UserEditViewModel obj);
     Task<UserEditViewModel?> GetById(string id);
 }

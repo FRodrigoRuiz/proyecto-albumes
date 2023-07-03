@@ -11,6 +11,7 @@ public class UsersController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IUsersService _usersService;
+    private readonly UserManager<IdentityUser> _userManager;
 
     public UsersController(
         ILogger<HomeController> logger,
@@ -35,16 +36,31 @@ public class UsersController : Controller
         return View(userSearchViewModel);
     }
 
-    public async Task<IActionResult> Edit(string id)
+    public async Task<IActionResult> AssignRole(string id)
     {
         var userViewModel = await _usersService.GetById(id);
         return View(userViewModel);
     }
 
     [HttpPost]
-    public IActionResult Edit(UserEditViewModel model)
+    public IActionResult AssignRole(UserEditViewModel model)
     {
-        _usersService.Update(model);
-        return RedirectToAction("Index");
+        _usersService.Assign(model);
+        return RedirectToAction("Index", 
+            routeValues: new {mensaje = "Rol asignado con exito a" + model.UserName});
+    }
+
+    public async Task<IActionResult> RemoveRole(string id)
+    {
+        var userViewModel = await _usersService.GetById(id);
+        return View(userViewModel);
+    }
+
+    [HttpPost]
+    public IActionResult RemoveRole(UserEditViewModel model)
+    {
+        _usersService.Remove(model);
+        return RedirectToAction("Index", 
+            routeValues: new {mensaje = "Rol removido con exito a" + model.UserName});
     }
 }

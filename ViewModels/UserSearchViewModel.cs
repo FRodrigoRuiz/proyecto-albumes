@@ -8,4 +8,6 @@ public class UserSearchViewModel{
 
     public string? UsernameFilter { get; set; }
 
+    public string Mensaje { get; set; }
+
 }

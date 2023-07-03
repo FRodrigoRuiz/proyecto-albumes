@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\wwwroot\\css\\vapor.css",
+      "PackagePath": "staticwebassets\\css\\vapor.css"
+    },
+    {
       "Id": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

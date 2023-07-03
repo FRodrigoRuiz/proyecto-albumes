@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "885VNDENleNwa1K0y0WGjxfBtEEVycTaVsULTNYCmkQ=",
+  "Hash": "b5CK38uP0k01Oy61tZcEdhzDGe6epFVD5aYxzhwH/yQ=",
   "Source": "Albumes",
   "BasePath": "_content/Albumes",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\wwwroot\\css\\vapor.css",
+      "SourceId": "Albumes",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\wwwroot\\",
+      "BasePath": "_content/Albumes",
+      "RelativePath": "css/vapor.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\vapor.css"
     },
     {
       "Identity": "C:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\wwwroot\\favicon.ico",

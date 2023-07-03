@@ -18660,6 +18660,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Roles\\DeleteRole.cshtml",
+      "TargetPath": "Views\\Roles\\DeleteRole.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\farid\\OneDrive\\Escritorio\\Herramientas de Programacion\\ProyectoParcialHerramientasDeProgramacion\\Albumes\\Views\\Artist\\Create.cshtml",
       "TargetPath": "Views\\Artist\\Create.cshtml",
       "FileKind": "mvc"

@@ -50,4 +50,16 @@ public class RolesController : Controller
 
         return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult> DeleteRole(string id)
+    {
+        var userViewModel = await _rolesService.GetById(id);
+        return View(userViewModel);
+    }
+
+    [HttpPost]
+    public IActionResult DeleteRole(RoleCreateViewModel model){
+        _rolesService.Delete(model);
+        return RedirectToAction("Index");
+    }
 }

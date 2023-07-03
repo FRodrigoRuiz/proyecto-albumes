@@ -9,4 +9,6 @@ public interface IRolesService
     
     List<IdentityRole> GetAll(string namefilter);
     void create(RoleCreateViewModel obj);
+    Task<RoleCreateViewModel?> GetById(string id);
+    void Delete(RoleCreateViewModel obj);
 }

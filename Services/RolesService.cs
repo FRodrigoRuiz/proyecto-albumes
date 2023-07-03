@@ -27,4 +27,23 @@ public class RolesService : IRolesService
         var roles = _roleManager.Roles.Where(x => x.Name.ToLower().Contains(namefilter.ToLower())).ToList();
         return roles;
     }
+
+
+    public async void Delete(RoleCreateViewModel obj) 
+    {
+        var role = await _roleManager.FindByNameAsync(obj.RoleName);
+        if (role != null)
+        {
+             await _roleManager.DeleteAsync(role);
+        }
+    }
+    public async Task<RoleCreateViewModel?> GetById(string id)
+    {
+        var user = await _roleManager.FindByIdAsync(id);
+
+        var userViewModel = new RoleCreateViewModel();
+        userViewModel.RoleName = user.Name ?? string.Empty;
+
+        return userViewModel;
+    }
 }

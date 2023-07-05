@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Albumes.ViewModels;
 
 namespace Albumes.Controllers;
+[Authorize]
 public class SongController : Controller
 {
     private readonly ISongService _songService;
@@ -24,6 +25,7 @@ public class SongController : Controller
         return View(songSearchViewModel);
     }
 
+    [Authorize(Roles = "admin, empleado")]
     public IActionResult Create()
     {
         return View();
@@ -41,6 +43,7 @@ public class SongController : Controller
         return RedirectToAction("Index");
     }
 
+    [Authorize(Roles = "admin, empleado")]
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null)

@@ -9,9 +9,11 @@ using Albumes.Data;
 using Albumes.Models;
 using Albumes.ViewModels;
 using Albumes.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Albumes.Controllers
 {
+    [Authorize]
     public class StockController : Controller
     {
         private readonly IStockService _stockService;
@@ -50,6 +52,7 @@ namespace Albumes.Controllers
             return View(stock);
         }
 
+        [Authorize(Roles = "admin, empleado")]
         // GET: Stock/Create
         public IActionResult Create(int id)
         {
@@ -84,6 +87,7 @@ namespace Albumes.Controllers
             return View(stock);
         }
 
+        [Authorize(Roles = "admin, empleado")]
         // GET: Stock/Edit/5
         public IActionResult Edit(int? id)
         {
@@ -135,6 +139,7 @@ namespace Albumes.Controllers
             return View(stock);
         }
 
+        [Authorize(Roles = "admin, empleado")]
         // GET: Stock/Delete/5
         public IActionResult Delete(int? id)
         {

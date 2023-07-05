@@ -7,6 +7,7 @@ using Albumes.Services;
 
 namespace Albumes.Controllers;
 
+[Authorize]
 public class UsersController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -21,6 +22,7 @@ public class UsersController : Controller
         _usersService = usersService;
     }
 
+    [Authorize(Roles = "admin")]
     public IActionResult Index(string? usernameFilter)
     {
         UserSearchViewModel userSearchViewModel;

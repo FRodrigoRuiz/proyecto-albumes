@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Albumes.Controllers
 {
+    [Authorize]
     public class AlbumController : Controller
     {
         private readonly IAlbumService _albumService;
@@ -24,6 +25,7 @@ namespace Albumes.Controllers
             _songService = songService;
         }
 
+        [Authorize(Roles = "admin, empleado")]
         // GET: Album
         public IActionResult Index(string? nameFilter)
         {
